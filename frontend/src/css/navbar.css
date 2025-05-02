@@ -1,0 +1,45 @@
+.custom-navbar {
+    background-color: #121212 !important;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #2c2c2c;
+  }
+  
+  .navbar-brand.logo {
+    color: #00bcd4  !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #e0e0e0 !important;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color:  #00bcd4 !important;
+    border-bottom: 2px solid #00acc1;
+  }
+  
+  /* Light toggle button */
+.navbar-toggler {
+    border: 1px solid #f7f1f1;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #ff5722 !important;
+    border-bottom: 2px solid #ff5722;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+  
