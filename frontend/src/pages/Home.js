@@ -26,9 +26,15 @@ const Home = () => (
             Hello 
             <span className="wave" role="img" aria-labelledby="wave"> 👋 </span>
           </h1>
-          <h1 className="heading-name">
-            I'M <strong className="main-name">SHEEL PATEL</strong>
-          </h1>
+          <p>
+            I'm <strong>Sheel Patel</strong>, a passionate full-stack developer
+            specializing in the MERN stack (MongoDB, Express, React, Node.js).
+            I love building responsive web applications and learning new technologies.
+          </p>
+          <p>
+            I have experience in developing scalable applications and integrating RESTful APIs.
+            I'm always looking for opportunities to collaborate and grow as a developer.
+          </p>
           <div className="typewriter-container">
             <Type />
           </div>

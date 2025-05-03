@@ -19,7 +19,7 @@ function Footer() {
             Designed and Developed by Sheel Patel
           </Col>
           <Col md={4} className="footer-text text-center mb-2 mb-md-0">
-            &copy; {year} Sheel Patel
+            Copyright &copy; {year} Sheel Patel
           </Col>
           <Col md={4} className="footer-icons text-md-end text-center">
             <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon github">
