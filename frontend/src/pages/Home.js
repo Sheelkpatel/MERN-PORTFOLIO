@@ -85,7 +85,7 @@ const Home = () => (
       </Row>
 
       <a
-  href="https://wa.me/9537904484" // replace with your number
+  href="https://wa.me/9537904484?text=Hello!%20I'm%20interested%20in%20your%20portfolio%20and%20would%20like%20to%20learn%20more%20about%20your%20services.%20Can%20you%20provide%20more%20details%20on%20your%20projects%20or%20discuss%20potential%20collaboration%20opportunities%3F%20Looking%20forward%20to%20connecting%20with%20you%21"
   className="whatsapp-chat-button"
   target="_blank"
   rel="noopener noreferrer"
@@ -95,6 +95,7 @@ const Home = () => (
     alt="WhatsApp Chat"
   />
 </a>
+
 
     </Container>
   </section>

@@ -15,7 +15,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {['/', '/about', '/projects', '/contact'].map((path, idx) => {
+            {['/', '/about', '/projects', '/resume'].map((path, idx) => {
               const name = ['Home', 'About', 'Projects', 'Resume'][idx];
               return (
                 <li className="nav-item" key={path}>
