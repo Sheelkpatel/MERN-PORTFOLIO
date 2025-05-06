@@ -1,7 +1,7 @@
-// controllers/resumeController.js
 const cloudinary = require('../config/cloudinary');
-const {Resume }= require('../models/index');
+const { Resume } = require('../models/index');
 
+// === Upload Resume PDF ===
 const uploadResume = async (req, res) => {
   try {
     const file = req.file;
@@ -23,11 +23,11 @@ const uploadResume = async (req, res) => {
       stream.end(file.buffer);
     });
 
-    // Remove old resume if exists
+    // Delete existing resume (if any)
     const oldResume = await Resume.findOne();
     if (oldResume) {
       await cloudinary.uploader.destroy(oldResume.publicId, { resource_type: 'raw' });
-      await oldResume.destroy();
+      await Resume.findByIdAndDelete(oldResume._id);
     }
 
     const newResume = await Resume.create({
@@ -41,10 +41,13 @@ const uploadResume = async (req, res) => {
   }
 };
 
+// === Get Latest Resume ===
 const getLatestResume = async (req, res) => {
   try {
-    const resume = await Resume.findOne({ order: [['updatedAt', 'DESC']] });
-    if (!resume) return res.status(404).json({ message: 'No resume found.' });
+    const resume = await Resume.findOne().sort({ updatedAt: -1 });
+    if (!resume) {
+      return res.status(404).json({ message: 'No resume found.' });
+    }
 
     res.json(resume);
   } catch (error) {
@@ -52,4 +55,4 @@ const getLatestResume = async (req, res) => {
   }
 };
 
-module.exports = { getLatestResume,uploadResume}
+module.exports = { uploadResume, getLatestResume };

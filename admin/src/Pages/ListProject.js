@@ -1,4 +1,3 @@
-// Admin/ProjectList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -40,7 +39,7 @@ const ProjectList = () => {
           <tbody>
             {projects.length > 0 ? (
               projects.map((project, index) => (
-                <tr key={project.projectId}>
+                <tr key={project._id}>
                   <td>{index + 1}</td>
                   <td>
                     {project.images && project.images.length > 0 ? (
@@ -59,7 +58,7 @@ const ProjectList = () => {
                   <td>{project.technologiesUsed}</td>
                   <td>{project.isPublished ? 'Yes' : 'No'}</td>
                   <td>
-                    <Link className="btn btn-sm btn-primary" to={`/admin/edit-project/${project.projectId}`}>
+                    <Link className="btn btn-sm btn-primary" to={`/admin/edit-project/${project._id}`}>
                       Edit
                     </Link>
                   </td>

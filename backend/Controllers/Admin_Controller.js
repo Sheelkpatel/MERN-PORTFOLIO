@@ -5,48 +5,46 @@ const nodemailer = require('nodemailer');
 
 const OTP_EXPIRY_MINUTES = 10;
 
-
-// Register Admin - Allow only one admin
+// === Register Admin (Allow only one) ===
 exports.register = async (req, res) => {
   const { email, password } = req.body;
   try {
-    // Check if an admin already exists
     const existingAdmin = await Admin.findOne();
     if (existingAdmin) {
       return res.status(400).json({ error: 'Admin already exists. Only one admin is allowed.' });
     }
 
-    const hashed = await bcrypt.hash(password, 10);
-    const admin = await Admin.create({ email, password: hashed });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const admin = await Admin.create({ email, password: hashedPassword });
+
     res.status(201).json({ message: 'Admin registered', admin });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
 
-// Send OTP - Allow OTP to be sent only if there's one admin
-
-// Setup transporter using Gmail with App Password
+// === Email Transporter Setup ===
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,     // e.g., your-email@gmail.com
-    pass: process.env.EMAIL_PASS      // 🔑 16-digit App Password from Google
+    pass: process.env.EMAIL_PASS      // App Password
   }
 });
 
+// === Send OTP ===
 exports.sendOTP = async (req, res) => {
   const { email } = req.body;
-
   try {
-    const admin = await Admin.findOne({ where: { email } });
+    const admin = await Admin.findOne({ email });
 
     if (!admin) {
       return res.status(404).json({ error: 'Admin not found' });
     }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    await Admin.update({ otp }, { where: { email } });
+    admin.otp = otp;
+    await admin.save();
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -62,11 +60,11 @@ exports.sendOTP = async (req, res) => {
   }
 };
 
-// Admin login with OTP
+// === Login Admin ===
 exports.login = async (req, res) => {
   const { email, password, otp } = req.body;
   try {
-    const admin = await Admin.findOne({ where: { email } });
+    const admin = await Admin.findOne({ email });
     if (!admin) return res.status(404).json({ error: 'Admin not found' });
 
     const match = await bcrypt.compare(password, admin.password);
@@ -74,7 +72,7 @@ exports.login = async (req, res) => {
 
     if (admin.otp !== otp) return res.status(401).json({ error: 'Invalid OTP' });
 
-    const token = jwt.sign({ adminId: admin.adminId }, process.env.JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ adminId: admin._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.json({ token });
   } catch (err) {
     res.status(500).json({ error: err.message });

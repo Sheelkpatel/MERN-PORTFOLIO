@@ -30,7 +30,7 @@ const Signup = () => {
     });
 
     const data = await response.json();
-    console.log(data.token);
+
     
     if (response.ok) {
       if (isRegistering) {
@@ -41,7 +41,7 @@ const Signup = () => {
       } else {
         // Correctly setting the token in localStorage
         localStorage.setItem('token', data.token); // This is correct usage of setItem
-        console.log(data.token);
+      
         navigate('/dashboard');
       }
     } else {

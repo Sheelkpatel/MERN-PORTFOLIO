@@ -13,12 +13,17 @@ const EditProject = () => {
   const [githubUrl, setGithubUrl] = useState('');
   const [isPublished, setIsPublished] = useState(false);
 
-  const [existingImages, setExistingImages] = useState([]); // image URLs
-  const [newImages, setNewImages] = useState([]); // files
-  const [previewImages, setPreviewImages] = useState([]); // new preview URLs
+  const [existingImages, setExistingImages] = useState([]);
+  const [newImages, setNewImages] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (!id) {
+      alert('No project ID provided in URL');
+      return;
+    }
+
     const fetchProject = async () => {
       try {
         const res = await axios.get(`http://localhost:8080/api/projects/${id}`);
@@ -34,25 +39,24 @@ const EditProject = () => {
         alert('Failed to load project');
       }
     };
+
     fetchProject();
   }, [id]);
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
-    if (existingImages.length + newImages.length + files.length > 4) {
+    const totalImages = existingImages.length + newImages.length + files.length;
+    if (totalImages > 4) {
       alert('You can upload a maximum of 4 images.');
       return;
     }
     setNewImages((prev) => [...prev, ...files]);
-    setPreviewImages((prev) => [
-      ...prev,
-      ...files.map((file) => URL.createObjectURL(file)),
-    ]);
+    setPreviewImages((prev) => [...prev, ...files.map((file) => URL.createObjectURL(file))]);
   };
 
   const handleRemoveExisting = (index) => {
     const updated = [...existingImages];
-    updated.slice(index, 1);
+    updated.splice(index, 1);
     setExistingImages(updated);
   };
 
@@ -67,10 +71,18 @@ const EditProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
 
-    newImages.forEach((file) => formData.append('newImages', file));
-    formData.append('existingImages', JSON.stringify(existingImages));
+    if (!id) {
+      alert('Invalid project ID');
+      return;
+    }
+
+    const formData = new FormData();
+    // Append the existing image URLs first
+    existingImages.forEach((src) => formData.append('existingImages', src));
+    // Append new images files
+    newImages.forEach((file) => formData.append('images', file));
+
     formData.append('projectName', projectName);
     formData.append('projectDescription', projectDescription);
     formData.append('technologiesUsed', technologiesUsed);

@@ -1,15 +1,16 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/DB'); 
-    const Resume = sequelize.define('Resume', {
-      url: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      publicId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    });
-  
-    
-    module.exports = Resume;
+const mongoose = require('mongoose');
+
+const resumeSchema = new mongoose.Schema({
+  url: {
+    type: String,
+    required: true,
+  },
+  publicId: {
+    type: String,
+    required: true,
+  },
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model('Resume', resumeSchema);

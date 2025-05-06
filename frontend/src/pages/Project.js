@@ -44,7 +44,7 @@ const ProjectList = () => {
                     {project.images && project.images.length > 0 ? (
                       project.images.map((image, index) => (
                         <div
-                          key={index}
+                          key={image} // Use image URL as key
                           className={`carousel-item ${index === 0 ? 'active' : ''}`}
                         >
                           <img
@@ -92,23 +92,32 @@ const ProjectList = () => {
 
                 {/* Card Body */}
                 <Card.Body className="d-flex flex-column flex-grow-1">
-                  <div className="mb-2">
-                    <Card.Title>{project.projectName}</Card.Title>
-                    <Card.Text>
-                      <strong>Description:</strong> {project.projectDescription}
-                    </Card.Text>
-                    <Card.Text>
-                      <strong>Technologies:</strong> {project.technologiesUsed}
-                    </Card.Text>
-                  </div>
-                  <div className="mt-auto">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="light" className="w-100">
-                        View on GitHub
-                      </Button>
-                    </a>
-                  </div>
-                </Card.Body>
+  <div className="mb-3">
+    <Card.Title className="fw-bold text-info fs-5 text-center border-bottom pb-2">
+      {project.projectName}
+    </Card.Title>
+    <Card.Text className="mt-2" style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+      <span className="fw-semibold text-uppercase text-secondary">Description:</span><br />
+      <span className="text-light">{project.projectDescription}</span>
+    </Card.Text>
+    <Card.Text className="mt-3 "style={{ fontSize: '0.95rem'}}>
+      <span className="fw-semibold text-uppercase text-secondary">Technologies:</span><br />
+      {project.technologiesUsed.split(',').map((tech, idx) => (
+        <span key={idx} className="badge bg-info text-dark me-2 mb-1">
+          {tech.trim()}
+        </span>
+      ))}
+    </Card.Text>
+  </div>
+  <div className="mt-auto">
+    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+      <Button variant="outline-info" className="w-100 fw-semibold">
+        🔗 View on GitHub
+      </Button>
+    </a>
+  </div>
+</Card.Body>
+
               </Card>
             </div>
           ))}

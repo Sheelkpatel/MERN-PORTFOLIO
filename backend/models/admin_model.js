@@ -1,26 +1,26 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/DB');
+const mongoose = require('mongoose');
 
-const Admin = sequelize.define('Admin', {
-  adminId: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
-  },
+const adminSchema = new mongoose.Schema({
   email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: { isEmail: true }
-  }
-  ,
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v);
+      },
+      message: 'Invalid email format'
+    }
+  },
   password: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: String,
+    required: true
   },
   otp: {
-    type: DataTypes.STRING,
-    allowNull: true
+    type: String,
+    default: null
   }
+}, {
+  timestamps: true
 });
 
-module.exports = Admin;
+module.exports = mongoose.model('Admin', adminSchema);
