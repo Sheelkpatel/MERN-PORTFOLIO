@@ -16,8 +16,8 @@ const Signup = () => {
     e.preventDefault();
 
     const url = isRegistering
-      ? 'http://localhost:8080/api/admin/register'
-      : 'http://localhost:8080/api/admin/login';
+      ? 'https://mern-portfolio-1-yadr.onrender.com/api/admin/register'
+      : 'https://mern-portfolio-1-yadr.onrender.com/api/admin/login';
 
     const body = isRegistering
       ? JSON.stringify({ email, password })
@@ -55,7 +55,7 @@ const Signup = () => {
       return;
     }
 
-    const response = await fetch('http://localhost:8080/api/admin/send-otp', {
+    const response = await fetch('https://mern-portfolio-1-yadr.onrender.com/api/admin/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),

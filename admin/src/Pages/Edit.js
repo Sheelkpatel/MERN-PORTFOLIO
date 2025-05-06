@@ -26,7 +26,7 @@ const EditProject = () => {
 
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/api/projects/${id}`);
+        const res = await axios.get(`https://mern-portfolio-1-yadr.onrender.com/api/projects/${id}`);
         const project = res.data;
         setProjectName(project.projectName);
         setProjectDescription(project.projectDescription);
@@ -91,7 +91,7 @@ const EditProject = () => {
 
     try {
       setLoading(true);
-      await axios.put(`http://localhost:8080/api/projects/edit/${id}`, formData, {
+      await axios.put(`https://mern-portfolio-1-yadr.onrender.com/api/projects/edit/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('Project updated successfully');

@@ -8,7 +8,7 @@ const Resume = () => {
   useEffect(() => {
     const fetchResume = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/resume/latest');
+        const { data } = await axios.get('https://mern-portfolio-1-yadr.onrender.com/api/resume/latest');
         setResumeUrl(data.url);
       } catch (error) {
         console.error(error);
@@ -19,8 +19,16 @@ const Resume = () => {
     fetchResume();
   }, []);
 
+  // Responsive height based on window width
+  const getPreviewHeight = () => {
+    const width = window.innerWidth;
+    if (width >= 992) return '100vh';   // large screens
+    if (width >= 768) return '80vh';   // tablets
+    return '50vh';                     // small screens
+  };
+
   return (
-    <div className="container-fluid  text-light min-vh-100 py-5" style={{ backgroundColor:' #121212 '}}>
+    <div className="container-fluid text-light min-vh-100 py-5" style={{ backgroundColor: '#121212' }}>
       <div className="container">
         <h2 className="text-center mb-4">My Resume</h2>
         {resumeUrl ? (
@@ -38,10 +46,10 @@ const Resume = () => {
 
             <div className="d-flex justify-content-center mb-4">
               <div
+                className="w-100"
                 style={{
-                  width: '794px',      // A4 width at 96dpi
-                  height: '1123px',    // A4 height at 96dpi
-                  maxWidth: '100%',
+                  maxWidth: '900px',
+                  height: getPreviewHeight(),
                   border: '1px solid #ccc',
                   boxShadow: '0 0 10px rgba(0,0,0,0.5)',
                   backgroundColor: '#fff',

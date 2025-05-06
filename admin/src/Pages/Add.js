@@ -51,7 +51,7 @@ const AddProject = () => {
 
     try {
       setLoading(true);
-      await axios.post('http://localhost:8080/api/projects/add', formData, {
+      await axios.post('https://mern-portfolio-1-yadr.onrender.com/api/projects/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('Project added successfully');

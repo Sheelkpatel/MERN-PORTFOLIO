@@ -12,7 +12,7 @@ const UploadResume = () => {
   useEffect(() => {
     const fetchResume = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/resume/latest');
+        const { data } = await axios.get('https://mern-portfolio-1-yadr.onrender.com/api/resume/latest');
         setPreviewUrl(data.url); // assuming backend sends { url: '...' }
       } catch (err) {
         console.error('Failed to fetch latest resume:', err);
