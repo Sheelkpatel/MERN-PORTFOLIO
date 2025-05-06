@@ -8,7 +8,7 @@ const Resume = () => {
   useEffect(() => {
     const fetchResume = async () => {
       try {
-        const { data } = await axios.get('https://mern-portfolio-1-yadr.onrender.com/api/resume/latest');
+        const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/resume/latest`);
         setResumeUrl(data.url);
       } catch (error) {
         console.error(error);

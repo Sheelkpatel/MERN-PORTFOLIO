@@ -9,7 +9,7 @@ const ProjectList = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const { data } = await axios.get('https://mern-portfolio-1-yadr.onrender.com/api/projects/list');
+        const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/projects/list`);
         setProjects(data);
       } catch (error) {
         console.error(error);
