@@ -1,7 +1,9 @@
 .custom-navbar {
     background-color: #121212 !important;
     padding: 1rem 2rem;
-    border-bottom: 1px solid #2c2c2c;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
   }
   
   .navbar-brand.logo {
@@ -32,8 +34,8 @@
   }
   
   .navbar-nav .nav-link.active {
-    color: #ff5722 !important;
-    border-bottom: 2px solid #ff5722;
+    color:  #00bcd4  !important;
+    border-bottom: 2px solid  #00bcd4 ;
   }
   
   @media (max-width: 991px) {

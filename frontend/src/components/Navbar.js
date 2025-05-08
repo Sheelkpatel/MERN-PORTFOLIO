@@ -1,33 +1,55 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/navbar.css'; // Make sure you create this file
+import '../css/navbar.css';
 
 const Navbar = () => {
-  const location = useLocation();
+  const sectionMap = {
+    Home: 'home',
+    About: 'about',
+    Skills:'skills',
+    Projects: 'project',
+    Resume: 'cv',
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar">
+    <nav className="navbar navbar-expand-lg custom-navbar top-fixed">
       <div className="container-fluid">
-        <Link className="navbar-brand logo" to="/">MY PORTFOLIO</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <ScrollLink
+          to="home"
+          smooth={true}
+          duration={500}
+          className="navbar-brand logo"
+          style={{ cursor: 'pointer' }}
+        >
+          MY PORTFOLIO
+        </ScrollLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {['/', '/about', '/projects', '/resume'].map((path, idx) => {
-              const name = ['Home', 'About', 'Projects', 'Resume'][idx];
-              return (
-                <li className="nav-item" key={path}>
-                  <Link
-                    className={`nav-link ${location.pathname === path ? 'active' : ''}`}
-                    to={path}
-                  >
-                    {name}
-                  </Link>
-                </li>
-              );
-            })}
+            {Object.entries(sectionMap).map(([label, id]) => (
+              <li className="nav-item" key={id}>
+                <ScrollLink
+                  to={id}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  offset={-70}
+                  className="nav-link"
+                  activeClass="active"
+                  style={{ cursor: 'pointer' }}
+                >
+                  {label}
+                </ScrollLink>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

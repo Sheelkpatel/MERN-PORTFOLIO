@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   AiFillGithub,
   AiOutlineTwitter,
   AiFillInstagram,
+  AiOutlineArrowUp,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import "../css/Footer.css";
 
 function Footer() {
   const year = new Date().getFullYear();
+  const [showButton, setShowButton] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowButton(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <footer className="footer  ">
-      <Container fluid>
-        <Row className="align-items-center mx-2">
-          <Col md={4} className="footer-text text-md-start text-center mb-2 mb-md-0">
-            Designed and Developed by Sheel Patel
-          </Col>
-          <Col md={4} className="footer-text text-center mb-2 mb-md-0">
-            Copyright &copy; {year} Sheel Patel
-          </Col>
-          <Col md={4} className="footer-icons text-md-end text-center">
+    <footer className="footer">
+      <Container >
+        <Row className="align-items-center justify-content-between text-center text-md-start">
+          <Col xs={12} md={3} className="footer-icons mb-3 mb-md-0">
             <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon github">
               <AiFillGithub />
             </a>
@@ -34,6 +42,20 @@ function Footer() {
             <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon instagram">
               <AiFillInstagram />
             </a>
+          </Col>
+
+          <Col xs={12} md={7} className="footer-text mb-3 mb-md-0 text-md-center ">
+            
+             &copy; Copyright  Sheel Patel {year}  <br />
+             Designed and Developed by <span style={{color:"#00bcd4"}}>Sheel Patel </span>
+          </Col>
+
+          <Col xs={12} md={2} className="text-md-end text-center justify-content-end d-flex ">
+            {showButton && (
+              <div className="back-to-top" onClick={scrollToTop}>
+                <AiOutlineArrowUp />
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

@@ -9,7 +9,16 @@ import Python from '../Assets/Python-Dark.svg';
 import NodeJS from '../Assets/NodeJS-Dark.svg';
 import TailwindCSS from '../Assets/TailwindCSS-Dark.svg';
 import Bootstrap from '../Assets/Bootstrap.svg';
-
+import Vercel from '../Assets/Vercel-Dark.svg';
+import Heroku from '../Assets/Heroku.svg'
+import React from 'react';
+import Vscode from '../Assets/vscode.svg';
+import Postman from '../Assets/postman.svg';
+import Insomnia from '../Assets/insomnia.svg';
+import MacOS from '../Assets/macos.svg';
+import GoogleDocs from '../Assets/googledocs.svg';
+import PowerPoint from '../Assets/powerpoint.svg';
+import '../css/About.css';
 const Skills = () => {
   const skill = [
     { name: 'HTML', img: HTML },
@@ -23,9 +32,18 @@ const Skills = () => {
     { name: 'NodeJS', img: NodeJS },
     { name: 'TailwindCSS', img: TailwindCSS },
     { name: 'Bootstrap', img: Bootstrap },
+    {name :'Vercel' , img : Vercel   },
+    {name :'Heroku' , img : Heroku   },
+    { name: 'VS Code', img: Vscode },
+    { name: 'Postman', img: Postman },
+    { name: 'Insomnia', img: Insomnia },
+    { name: 'macOS', img: MacOS },
+    { name: 'Google Docs', img: GoogleDocs },
+    { name: 'PowerPoint', img: PowerPoint },
   ];
 
   return (
+    <section id="skills" style={{backgroundColor:'#121212'}}>
     <div className="skills-section">
       <h2>Professional Skill Set</h2>
       <div className="skills-grid mt-5">
@@ -37,6 +55,8 @@ const Skills = () => {
         ))}
       </div>
     </div>
+     
+    </section>
   );
 };
 

@@ -1,53 +1,101 @@
 .footer {
-    background-color: #121212;
-    padding: 20px 0;
-    color: #e0e0e0;
-    font-size: 0.95rem;
-    border-top: 1px solid #333;
-  }
+  background-color: #121212;
+  padding: 10px 20px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  border-top: 1px solid #333;
+}
+
+.footer-text {
+  font-weight: 500;
+  justify-content: center;
+}
+
+.footer-icons {
+  display: flex;
   
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-icons .icon {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+/* Brand colors */
+.icon.github {
+  color: #f5f5f5;
+}
+.icon.twitter {
+  color: #1DA1F2;
+}
+.icon.linkedin {
+  color: #0077b5;
+}
+.icon.instagram {
+  color: #e1306c;
+}
+
+/* Back to top button */
+.back-to-top {
+  bottom: 30px;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s, color 0.3s;
+}
+
+.back-to-top:hover {
+  background: black;
+  color:#00bcd4  ;
+  border: 2px solid #00bcd4;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
   .footer-text {
-    font-weight: 500;
+    text-align: center;
   }
-  
+
+  .back-to-top {
+    right: 20px;
+    bottom: 20px;
+  }
   .footer-icons {
     display: flex;
-    justify-content: flex-end;
+    margin: 0;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
   }
-  
-  .footer-icons .icon {
-    font-size: 1.6rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .footer-icons .icon:hover {
-    transform: scale(1.2);
-  }
-  
-  /* Brand colors */
-  .icon.github {
-    color: #f5f5f5;
-  }
-  .icon.twitter {
-    color: #1DA1F2;
-  }
-  .icon.linkedin {
-    color: #0077b5;
-  }
-  .icon.instagram {
-    color: #e1306c;
-  }
-  
-  /* Responsive Layout */
-  @media (max-width: 768px) {
-    .footer-icons {
-      justify-content: center;
-      margin-top: 10px;
-    }
-  
-    .footer-text {
-      text-align: center;
-    }
-  }
-  
+}
+
+
+/*resume css*/
+.custom-resume-btn {
+  border: 2px solid white;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+.custom-resume-btn:hover {
+  background-color: #000; /* dark background */
+  color:#00bcd4;             /* red text on hover */
+  border-color:#00bcd4;
+}
+

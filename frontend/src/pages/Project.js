@@ -14,13 +14,14 @@ const ProjectList = () => {
       } catch (error) {
         console.error(error);
         alert('Failed to fetch projects');
-      }
+      } 
     };
 
     fetchProjects();
   }, []);
 
   return (
+    <section id="project">
     <div className="bg-dark text-light py-4">
       <h2 className="text-center mb-4">My Recent <span style={{ color: "#00bcd4" }}>Work</span></h2>
       <div className="container">
@@ -124,6 +125,7 @@ const ProjectList = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 
