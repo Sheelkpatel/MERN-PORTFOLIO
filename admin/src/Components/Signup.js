@@ -8,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');
   const [showOtpField, setShowOtpField] = useState(false);
-  const [otpSent, setOtpSent] = useState(false); // <- new state
+  const [otpSent, setOtpSent] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ const Signup = () => {
 
     const data = await response.json();
 
-    
     if (response.ok) {
       if (isRegistering) {
         alert('Registration successful. You can now log in.');
@@ -39,9 +38,7 @@ const Signup = () => {
         setShowOtpField(false);
         setOtpSent(false);
       } else {
-        // Correctly setting the token in localStorage
-        localStorage.setItem('token', data.token); // This is correct usage of setItem
-      
+        localStorage.setItem('token', data.token);
         navigate('/dashboard');
       }
     } else {
@@ -66,84 +63,91 @@ const Signup = () => {
     if (response.ok) {
       alert(data.message);
       setShowOtpField(true);
-      setOtpSent(true); // <- OTP was sent
+      setOtpSent(true);
     } else {
       setError(data.error || 'Failed to send OTP');
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="card shadow p-4" style={{ width: '100%', maxWidth: '400px' }}>
-        <h2 className="text-center mb-4">
-          {isRegistering ? 'Admin Register' : 'Admin Login'}
-        </h2>
+    <div className="container-fluid bg-light d-flex align-items-center justify-content-center" style={{ minHeight: '90vh' }}>
+      <div className="row justify-content-center w-100 m-0 px-2">
+        <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+          <div
+            className="card shadow p-4"
+            style={{ maxHeight: '100vh', overflowY: 'auto' }}
+          >
+            <h2 className="text-center mb-4">
+              {isRegistering ? 'Admin Register' : 'Admin Login'}
+            </h2>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Email:</label>
-            <input
-              type="email"
-              className="form-control"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Email:</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Password:</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              {!isRegistering && showOtpField && (
+                <div className="mb-3">
+                  <label className="form-label">OTP:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    required
+                    placeholder="Enter OTP sent to your email"
+                  />
+                </div>
+              )}
+
+              <div className="d-grid gap-2">
+                {!isRegistering && !otpSent && (
+                  <button type="button" className="btn btn-secondary" onClick={handleSendOtp}>
+                    Send OTP
+                  </button>
+                )}
+
+                {(!isRegistering && otpSent) || isRegistering ? (
+                  <button type="submit" className="btn btn-primary">
+                    {isRegistering ? 'Register' : 'Login'}
+                  </button>
+                ) : null}
+              </div>
+            </form>
+
+            <button
+              className="btn btn-link mt-3 w-100 text-center"
+              onClick={() => {
+                setIsRegistering(!isRegistering);
+                setError('');
+                setShowOtpField(false);
+                setOtpSent(false);
+              }}
+            >
+              {isRegistering ? 'Already have an account? Login' : 'New admin? Register'}
+            </button>
+
+            {error && <div className="alert alert-danger mt-2">{error}</div>}
           </div>
-
-          <div className="mb-3">
-            <label className="form-label">Password:</label>
-            <input
-              type="password"
-              className="form-control"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          {!isRegistering && showOtpField && (
-            <div className="mb-3">
-              <label className="form-label">OTP:</label>
-              <input
-                type="text"
-                className="form-control"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                required
-                placeholder="Enter OTP sent to your email"
-              />
-            </div>
-          )}
-
-          <div className="d-grid gap-2">
-            {!isRegistering && !otpSent && (
-              <button type="button" className="btn btn-secondary" onClick={handleSendOtp}>
-                Send OTP
-              </button>
-            )}
-
-            {(!isRegistering && otpSent) || isRegistering ? (
-              <button type="submit" className="btn btn-primary">
-                {isRegistering ? 'Register' : 'Login'}
-              </button>
-            ) : null}
-          </div>
-        </form>
-
-        <button
-          className="btn btn-link mt-3 w-100"
-          onClick={() => {
-            setIsRegistering(!isRegistering);
-            setError('');
-            setShowOtpField(false);
-            setOtpSent(false);
-          }}
-        >
-          {isRegistering ? 'Already have an account? Login' : 'New admin? Register'}
-        </button>
-
-        {error && <div className="alert alert-danger mt-2">{error}</div>}
+        </div>
       </div>
     </div>
   );

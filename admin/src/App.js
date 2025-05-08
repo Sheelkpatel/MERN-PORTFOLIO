@@ -20,7 +20,7 @@ const App = () => {
             <PrivateRoute>
               <>
                 <Navbar />
-                <h2>Welcome to the Admin Dashboard</h2>
+                <Resume />
               </>
             </PrivateRoute>
           }
@@ -50,17 +50,7 @@ const App = () => {
           }
         />
 
-        <Route
-          path="/addresume"
-          element={
-            
-              <>
-                <Navbar />
-                <Resume />
-              </>
-            
-          }
-        />
+        
 
           <Route
           path="/admin/edit-project/:id"

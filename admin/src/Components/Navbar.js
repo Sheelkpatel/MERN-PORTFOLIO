@@ -30,7 +30,7 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
+          <li className="nav-item">
               <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </li>
             <li className="nav-item">
@@ -39,9 +39,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/list-projects">List Projects</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/addresume">Add Resume</Link>
-            </li>
+            
             <li className="nav-item">
               <button className="btn btn-outline-danger ms-lg-3 mt-2 mt-lg-0" onClick={handleLogout}>
                 Logout

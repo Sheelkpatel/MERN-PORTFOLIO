@@ -4,7 +4,8 @@ import Typewriter from "typewriter-effect";
 function Type() {
   return (
     <Typewriter
-      options={{
+       style={{fontSize:"5rem"}}
+        options={{
         strings: [
           "Software Developer",
           "Freelancer",

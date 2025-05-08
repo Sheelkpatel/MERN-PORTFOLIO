@@ -32,9 +32,10 @@ const Home = () => (
                 I have experience in developing scalable applications and integrating RESTful APIs.
                 I'm always looking for opportunities to collaborate and grow as a developer.
               </p>
-              <div className="typewriter-container" style={{ color: "#00bcd4" }}>
-                <strong><Type /></strong>
-              </div>
+              <div className="typewriter-container" style={{ color: "#00bcd4", fontSize: "1.9rem" }}>
+  <strong><Type /></strong>
+</div>
+
             </div>
           </Col>
         </Row>

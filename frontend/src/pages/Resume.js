@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../css/Footer.css'
 
 const Resume = () => {
   const [resumeUrl, setResumeUrl] = useState('');
@@ -34,63 +35,68 @@ const Resume = () => {
 
   return (
     <section
-      id="cv"
-      style={{ backgroundColor: '#121212', color: 'white', paddingTop: '150px', paddingBottom: '100px' }}
-    >
-      <div className="container py-4">
-        <h2 className="display-4 fw-bold mb-5">Get In Touch.</h2>
+      id="cv" className='resume'>
+      <div className="container">
+        <h2 className="display-5 fw-bold mb-5 text-center text-md-start">Get In Touch.</h2>
 
-        <div className="row">
-          {/* Left text */}
-          <div className="col-md-6 mb-4">
-            <p
-              className="text-align-justify"
-              style={{ color: 'gray', fontSize: '1.5rem', marginTop: '35px' }}
+        <div className="row align-items-start">
+          {/* Left Column */}
+          <div className="col-12 col-md-6 mb-4 xyz">
+            <p 
+              style={{
+                color: 'gray',
+                fontSize: '1.3rem',
+                lineHeight: '1.8',
+                textAlign:"justify", 
+                marginBlockEnd:"8px;"             
+              }}
             >
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I'm always open to discussing new projects, Imaginative solutions, and opportunities to be part of your vision.
               Whether you have a question or just want to say hi — feel free to reach out.
               Let's build something great together.
             </p>
           </div>
 
-          {/* Right info */}
-          <div className="col-md-6 mb-4 d-md-flex">
-            <div >
-              <h5 style={{ fontSize: '1.5rem',fontFamily: 'Castoro, serif'  }}>Follow Me</h5>
-              <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.5rem' }}>
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-                <li>Instagram</li>
-                <li>GitHub</li>
-              </ul>
-            </div>
-            <div style={{ marginLeft: '50px' }}>
-              <h5 style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Contact Me</h5>
-              <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.5rem' }}>
-                <li>sheelpatel0710@gmail.com</li>
-                <li>+91 95379 04484</li>
-              </ul>
+          {/* Right Column */}
+          <div className="col-12 col-md-6 mb-4">
+            <div className="d-flex flex-column flex-md-row find-me">
+              <div>
+                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Follow Me</h5>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
+                  <li>LinkedIn</li>
+                  <li>Twitter</li>
+                  <li>Instagram</li>
+                  <li>GitHub</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Contact Me</h5>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
+                  <li>sheelpatel0710@gmail.com</li>
+                  <li>+91 9537904484</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Buttons */}
         <div className="row mt-4">
-          <div className="col-md-6 mb-2">
+          <div className="col-12 col-md-6 mb-3">
             <button
               onClick={handleEmailClick}
-              className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white"
+              className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white "
             >
-             Contact via Email
+              Contact via Email
             </button>
           </div>
-          <div className="col-md-6 mb-2">
+          <div className="col-12 col-md-6 mb-3">
             {resumeUrl && (
               <a
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn w-100 py-3 text-uppercase fw-semibold custom-resume-btn"
+                className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
               >
                 Get My CV
               </a>
