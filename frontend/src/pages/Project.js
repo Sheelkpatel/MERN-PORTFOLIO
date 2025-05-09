@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion'; // Import Framer Motion
 import '../css/main.css';
 
 const ProjectList = () => {
@@ -27,25 +28,28 @@ const ProjectList = () => {
           My Recent <span style={{ color: "#00bcd4" }}>Work</span>
         </h2>
         <div className="row g-4 justify-content-center">
-          {projects.map((project) => (
-            <div key={project.projectId} className="col-12 col-sm-10 col-md-6 col-lg-4 d-flex">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.projectId}
+              className="col-12 col-sm-10 col-md-6 col-lg-4 d-flex"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
               <Card className="bg-dark text-light shadow-lg w-100 border-0" style={{ borderRadius: "0.75rem", overflow: "hidden" }}>
                 
                 {/* Carousel */}
                 <div id={`carousel-${project.projectId}`} className="carousel slide" data-bs-ride="carousel">
                   <div className="carousel-inner">
                     {project.images && project.images.length > 0 ? (
-                      project.images.map((image, index) => (
-                        <div key={image} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                      project.images.map((image, idx) => (
+                        <div key={image} className={`carousel-item ${idx === 0 ? 'active' : ''}`}>
                           <img
                             src={image}
                             className="d-block w-100"
-                            style={{
-                              objectFit: 'cover',
-                              maxHeight: '300px',
-                              width: '100%',
-                            }}
-                            alt={`Project image ${index + 1}`}
+                            style={{ objectFit: 'cover', maxHeight: '300px' }}
+                            alt={`Project image ${idx + 1}`}
                           />
                         </div>
                       ))
@@ -55,11 +59,7 @@ const ProjectList = () => {
                           src="https://via.placeholder.com/300x200"
                           className="d-block w-100"
                           alt="Placeholder"
-                          style={{
-                            objectFit: 'cover',
-                            maxHeight: '300px',
-                            width: '100%',
-                          }}
+                          style={{ objectFit: 'cover', maxHeight: '300px' }}
                         />
                       </div>
                     )}
@@ -108,7 +108,7 @@ const ProjectList = () => {
                   </div>
                 </Card.Body>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

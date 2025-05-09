@@ -1,3 +1,8 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import '../css/About.css'; // Keep using your existing styles
+
+// Import assets...
 import HTML from '../Assets/HTML.svg';
 import CSS from '../Assets/CSS.svg';
 import JavaScript from '../Assets/JavaScript.svg';
@@ -10,15 +15,14 @@ import NodeJS from '../Assets/NodeJS-Dark.svg';
 import TailwindCSS from '../Assets/TailwindCSS-Dark.svg';
 import Bootstrap from '../Assets/Bootstrap.svg';
 import Vercel from '../Assets/Vercel-Dark.svg';
-import Heroku from '../Assets/Heroku.svg'
-import React from 'react';
+import Heroku from '../Assets/Heroku.svg';
 import Vscode from '../Assets/vscode.svg';
 import Postman from '../Assets/postman.svg';
 import Insomnia from '../Assets/insomnia.svg';
 import MacOS from '../Assets/macos.svg';
 import GoogleDocs from '../Assets/googledocs.svg';
 import PowerPoint from '../Assets/powerpoint.svg';
-import '../css/About.css';
+
 const Skills = () => {
   const skill = [
     { name: 'HTML', img: HTML },
@@ -32,8 +36,8 @@ const Skills = () => {
     { name: 'NodeJS', img: NodeJS },
     { name: 'TailwindCSS', img: TailwindCSS },
     { name: 'Bootstrap', img: Bootstrap },
-    {name :'Vercel' , img : Vercel   },
-    {name :'Heroku' , img : Heroku   },
+    { name: 'Vercel', img: Vercel },
+    { name: 'Heroku', img: Heroku },
     { name: 'VS Code', img: Vscode },
     { name: 'Postman', img: Postman },
     { name: 'Insomnia', img: Insomnia },
@@ -43,19 +47,26 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" style={{backgroundColor:'#121212'}}>
-    <div className="skills-section">
-      <h2>Professional Skill Set</h2>
-      <div className="skills-grid mt-5">
-        {skill.map((skill) => (
-          <div className="skill-card" key={skill.name}>
-            <img src={skill.img} alt={skill.name} />
-            <p>{skill.name}</p>
-          </div>
-        ))}
+    <section id="skills" style={{ backgroundColor: '#121212', color: 'white' }}>
+      <div className="skills-section container py-5">
+        <h2 className="text-center mb-4">Professional Skill Set</h2>
+        <div className="skills-grid mt-5">
+          {skill.map((skill, index) => (
+            <motion.div
+              className="skill-card"
+              key={skill.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.0 }}
+            >
+              <img src={skill.img} alt={skill.name} />
+              <p>{skill.name}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-     
     </section>
   );
 };

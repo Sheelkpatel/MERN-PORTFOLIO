@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../css/Footer.css'
+import { motion } from 'framer-motion';
+import '../css/Footer.css';
 
 const Resume = () => {
   const [resumeUrl, setResumeUrl] = useState('');
@@ -24,43 +25,69 @@ const Resume = () => {
   const handleEmailClick = () => {
     window.open(
       'https://mail.google.com/mail/?view=cm&fs=1' +
-      '&to=sheelpatel0710@gmail.com' +
-      '&su=Contact%20from%20Portfolio' +
-      '&body=Hi%20Sheel,%0D%0A%0D%0A' +
-      'I%27m%20interested%20in%20collaborating%20with%20you.%20Let%27s%20connect!%0D%0A',
+        '&to=sheelpatel0710@gmail.com' +
+        '&su=Contact%20from%20Portfolio' +
+        '&body=Hi%20Sheel,%0D%0A%0D%0A' +
+        'I%27m%20interested%20in%20collaborating%20with%20you.%20Let%27s%20connect!%0D%0A',
       '_blank',
       'noopener,noreferrer'
     );
   };
 
   return (
-    <section
-      id="cv" className='resume'>
+    <motion.section
+      id="cv"
+      className="resume"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="container">
-        <h2 className="display-5 fw-bold mb-5 text-center text-md-start">Get In Touch.</h2>
+        <motion.h2
+          className="display-5 fw-bold mb-5 text-center text-md-start"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Get In Touch.
+        </motion.h2>
 
         <div className="row align-items-start">
           {/* Left Column */}
-          <div className="col-12 col-md-6 mb-4 xyz">
-            <p 
+          <motion.div
+            className="col-12 col-md-6 mb-4 xyz"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p
               style={{
                 color: 'gray',
                 fontSize: '1.3rem',
                 lineHeight: '1.8',
-                textAlign:"justify", 
-                marginBlockEnd:"8px;"             
+                textAlign: 'justify',
+                marginBlockEnd: '8px',
               }}
             >
-              I'm always open to discussing new projects, Imaginative solutions, and opportunities to be part of your vision.
+              I'm always open to discussing new projects, imaginative solutions, and opportunities to be part of your vision.
               Whether you have a question or just want to say hi — feel free to reach out.
               Let's build something great together.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Column */}
-          <div className="col-12 col-md-6 mb-4">
+          <motion.div
+            className="col-12 col-md-6 mb-4"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <div className="d-flex flex-column flex-md-row find-me">
-              <div>
+              <div className="me-md-5 mb-3 mb-md-0">
                 <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Follow Me</h5>
                 <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
                   <li>LinkedIn</li>
@@ -77,20 +104,28 @@ const Resume = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Buttons */}
         <div className="row mt-4">
-          <div className="col-12 col-md-6 mb-3">
+          <motion.div
+            className="col-12 col-md-6 mb-3"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
             <button
               onClick={handleEmailClick}
-              className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white "
+              className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white"
             >
               Contact via Email
             </button>
-          </div>
-          <div className="col-12 col-md-6 mb-3">
+          </motion.div>
+          <motion.div
+            className="col-12 col-md-6 mb-3"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
             {resumeUrl && (
               <a
                 href={resumeUrl}
@@ -101,10 +136,10 @@ const Resume = () => {
                 Get My CV
               </a>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

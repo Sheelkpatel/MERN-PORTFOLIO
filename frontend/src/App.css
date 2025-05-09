@@ -1,9 +1,4 @@
-.app-container {
-  position: relative;
-  min-height: 100vh;
-  background-image: url('./Assets/background.svg'); /* if in public */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow-x: hidden;
+/* Enable smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
 }
