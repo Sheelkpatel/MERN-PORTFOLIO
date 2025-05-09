@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import '../css/main.css';
+
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
 
@@ -28,22 +29,22 @@ const ProjectList = () => {
         <div className="row g-4 justify-content-center">
           {projects.map((project) => (
             <div key={project.projectId} className="col-12 col-sm-10 col-md-6 col-lg-4 d-flex">
-              <Card
-                className="bg-dark text-light shadow-lg w-100 border-0"
-                style={{ borderRadius: "0.75rem", overflow: "hidden", transition: 'transform 0.3s' }}
-              >
+              <Card className="bg-dark text-light shadow-lg w-100 border-0" style={{ borderRadius: "0.75rem", overflow: "hidden" }}>
+                
+                {/* Carousel */}
                 <div id={`carousel-${project.projectId}`} className="carousel slide" data-bs-ride="carousel">
                   <div className="carousel-inner">
                     {project.images && project.images.length > 0 ? (
                       project.images.map((image, index) => (
-                        <div
-                          key={image}
-                          className={`carousel-item ${index === 0 ? 'active' : ''}`}
-                        >
+                        <div key={image} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                           <img
                             src={image}
                             className="d-block w-100"
-                            style={{ height: '220px', objectFit: 'cover' }}
+                            style={{
+                              objectFit: 'cover',
+                              maxHeight: '300px',
+                              width: '100%',
+                            }}
                             alt={`Project image ${index + 1}`}
                           />
                         </div>
@@ -54,6 +55,11 @@ const ProjectList = () => {
                           src="https://via.placeholder.com/300x200"
                           className="d-block w-100"
                           alt="Placeholder"
+                          style={{
+                            objectFit: 'cover',
+                            maxHeight: '300px',
+                            width: '100%',
+                          }}
                         />
                       </div>
                     )}
@@ -73,6 +79,7 @@ const ProjectList = () => {
                   )}
                 </div>
 
+                {/* Card Content */}
                 <Card.Body className="d-flex flex-column p-4">
                   <Card.Title className="fw-bold text-info text-center border-bottom pb-2 fs-5">
                     {project.projectName}

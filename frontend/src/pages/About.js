@@ -7,10 +7,10 @@ const About = () => {
   return (
     <section id="about" className="py-3" style={{ backgroundColor: "#121212", color: "white" }}>
       <div className="container">
-        <div className="row align-items-center gy-5">
+        <div className="row align-items-center gy-5 gx-5">
           {/* Text Section */}
           <div className="col-12 col-md-7">
-            <h1 className="mb-4 fw-bold text-center text-md-start">LET ME INTRODUCE MYSELF</h1>
+            <h1 className="mb-4 fw-bold text-center ">LET ME INTRODUCE MYSELF</h1>
             <p className="fs-5" style={{ textAlign: "justify" }}>
               Hi Everyone, I am <strong className="text-info">Sheel Patel</strong> from Vadodara, Gujarat, India.
               I have completed my Bachelors in Computer Engineering from Gujarat Technological University.
@@ -28,10 +28,14 @@ const About = () => {
           </div>
 
           {/* Image Section */}
-          <div className="col-12 col-md-5 text-center">
-            <Tilt>
-              <img src={Avatar} alt="Developer at work" className="img-fluid" style={{ maxHeight: '400px' }} />
-            </Tilt>
+          <div className="col-12 col-md-5 ">
+          <Tilt>
+  <img 
+    src={Avatar} 
+    alt="Developer at work" 
+    className="img-fluid responsive-avatar" 
+  />
+</Tilt>
           </div>
         </div>
       </div>
