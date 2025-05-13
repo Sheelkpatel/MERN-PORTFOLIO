@@ -30,16 +30,16 @@ function Footer() {
       <Container >
         <Row className="align-items-center justify-content-between text-center text-md-start">
           <Col xs={12} md={3} className="footer-icons mb-3 mb-md-0">
-            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon github">
+            <a href="https://github.com/Sheelkpatel/" target="_blank" rel="noreferrer" className="icon github">
               <AiFillGithub />
             </a>
-            <a href="https://twitter.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon twitter">
+            <a href="https://x.com/sheelpatel07" target="_blank" rel="noreferrer" className="icon twitter">
               <AiOutlineTwitter />
             </a>
-            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon linkedin">
+            <a href="https://www.linkedin.com/in/sheel-patel-ba706b2b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer" className="icon linkedin">
               <FaLinkedinIn />
             </a>
-            <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className="icon instagram">
+            <a href="https://www.instagram.com/sheel0710?igsh=MW1xb3Bkc2NiYWlwcQ==" target="_blank" rel="noreferrer" className="icon instagram">
               <AiFillInstagram />
             </a>
           </Col>

@@ -1,47 +1,68 @@
+/* navbar.css */
 .custom-navbar {
-    background-color: #121212 !important;
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-  }
+  background:#121212;
+  transition: background 0.3s ease-in-out;
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+.custom-navbar .custom-link {
+  color: #ffffff;
   
-  .navbar-brand.logo {
-    color: #00bcd4  !important;
-    font-weight: bold;
+  font-size: 1.3rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .custom-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:  #00bcd4;
+  transition: width 0.3s ease-in-out;
+}
+
+.custom-navbar .custom-link:hover::after,
+.custom-navbar .custom-link.active::after {
+  width: 100%;
+}
+
+.custom-navbar .custom-link:hover,
+.custom-navbar .custom-link.active {
+  color:  #00bcd4;
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding-top: 1rem;
+  }
+
+  .custom-navbar .navbar-brand {
     font-size: 1.5rem;
   }
-  
-  .navbar-nav .nav-link {
-    color: #e0e0e0 !important;
-    margin: 0 10px;
-    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
-    border-bottom: 2px solid transparent;
+  .custom-navbar .custom-link {
+    color: #ffffff;
+    
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
   }
   
-  .navbar-nav .nav-link:hover {
-    color:  #00bcd4 !important;
-    border-bottom: 2px solid #00acc1;
-  }
-  
-  /* Light toggle button */
-.navbar-toggler {
-    border: 1px solid #f7f1f1;
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-  
-  .navbar-nav .nav-link.active {
-    color:  #00bcd4  !important;
-    border-bottom: 2px solid  #00bcd4 ;
-  }
-  
-  @media (max-width: 991px) {
-    .navbar-nav {
-      text-align: center;
-      margin-top: 1rem;
-    }
-  }
-  
+}

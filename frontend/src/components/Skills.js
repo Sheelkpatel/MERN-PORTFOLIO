@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../css/About.css'; // Keep using your existing styles
+import '../css/skill.css'; // Keep using your existing styles
 
 // Import assets...
 import HTML from '../Assets/HTML.svg';

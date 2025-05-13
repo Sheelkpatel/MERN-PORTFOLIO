@@ -1,13 +1,19 @@
-/* main.css */
 .hero-section {
   padding: 80px 0;
   background-color: #121212;
+  overflow-x: hidden;
 }
 
 .hero-image {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
 }
 
 .hero-text {
@@ -22,21 +28,22 @@
 }
 
 .main-heading {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: bold;
   color: #f7f2f2;
+  line-height: 1.2;
 }
 
 .typewriter-container {
   color: #00bcd4;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-top: 10px;
 }
 
 .hero-btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 10px 22px;
+  padding: 12px 24px;
   background-color: #00bcd4;
   color: white;
   font-weight: 600;
@@ -51,63 +58,73 @@
 
 .whatsapp-float {
   position: fixed;
-  bottom: 100px;
+  bottom: 80px;
   right: 20px;
   z-index: 1000;
 }
 
 .whatsapp-icon {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 }
 
-
-
-/* Responsive Typography */
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 992px) {
   .main-heading {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .typewriter-container {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 1.8rem;
+  }
+
+  .typewriter-container {
+    font-size: 1rem;
   }
 
   .hero-btn {
     font-size: 0.9rem;
     padding: 10px 20px;
   }
+
   .whatsapp-float {
-    position: fixed;
-    bottom: 200px;
-    right: 20px;
-    z-index: 1000;
-  }
-  
-  
-  
-}
-
-
-/*about css*/
-.card:hover {
-  transform: scale(1.02);
-}
-.responsive-avatar {
-  max-width: 100%;
-  height: auto;
-  max-height: 800px;
-  width: auto;
-}
-
-@media (max-width: 768px) {
-  .responsive-avatar {
-    max-height: 300px;
+    bottom: 120px;
+    right: 15px;
   }
 }
 
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 1.5rem;
+  }
 
-/*typewriter*/
+  .typewriter-container {
+    font-size: 0.9rem;
+  }
+
+  .hero-btn {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+  }
+
+  .whatsapp-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Typewriter Cursor */
 .typewriter-text .cursor {
   display: inline-block;
   width: 1px;
@@ -119,20 +136,4 @@
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
-}
-
-/*skill*/
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-
-
-
-
-img:hover {
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }

@@ -7,20 +7,19 @@ const Navbar = () => {
   const sectionMap = {
     Home: 'home',
     About: 'about',
-    Skills:'skills',
+    Skills: 'skills',
     Projects: 'project',
     Resume: 'cv',
   };
 
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar top-fixed">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top shadow-sm">
+      <div className="container-fluid px-5">
         <ScrollLink
           to="home"
           smooth={true}
           duration={500}
-          className="navbar-brand logo"
-          style={{ cursor: 'pointer' }}
+          className="navbar-brand"
         >
           MY PORTFOLIO
         </ScrollLink>
@@ -29,11 +28,15 @@ const Navbar = () => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav text-center d-flex flex-row flex-wrap gap-3">
             {Object.entries(sectionMap).map(([label, id]) => (
               <li className="nav-item" key={id}>
                 <ScrollLink
@@ -42,9 +45,8 @@ const Navbar = () => {
                   duration={500}
                   spy={true}
                   offset={-70}
-                  className="nav-link"
+                  className="nav-link custom-link"
                   activeClass="active"
-                  style={{ cursor: 'pointer' }}
                 >
                   {label}
                 </ScrollLink>

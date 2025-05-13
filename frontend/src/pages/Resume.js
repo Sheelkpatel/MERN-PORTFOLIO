@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { motion } from 'framer-motion';
-import '../css/Footer.css';
+import '../css/resume.css';
 
 const Resume = () => {
   const [resumeUrl, setResumeUrl] = useState('');
@@ -35,34 +34,15 @@ const Resume = () => {
   };
 
   return (
-    <motion.section
-      id="cv"
-      className="resume"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
+    <section id="cv" className="resume">
       <div className="container">
-        <motion.h2
-          className="display-5 fw-bold mb-5 text-center text-md-start"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="display-5 fw-bold mb-5 text-center text-md-start">
           Get In Touch.
-        </motion.h2>
+        </h2>
 
         <div className="row align-items-start">
           {/* Left Column */}
-          <motion.div
-            className="col-12 col-md-6 mb-4 xyz"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="col-12 col-md-6 mb-4 xyz">
             <p
               style={{
                 color: 'gray',
@@ -72,60 +52,79 @@ const Resume = () => {
                 marginBlockEnd: '8px',
               }}
             >
-              I'm always open to discussing new projects, imaginative solutions, and opportunities to be part of your vision.
-              Whether you have a question or just want to say hi — feel free to reach out.
-              Let's build something great together.
+              I'm always open to discussing new projects, imaginative solutions,
+              and opportunities to be part of your vision. Whether you have a
+              question or just want to say hi — feel free to reach out. Let's
+              build something great together.
             </p>
-          </motion.div>
+          </div>
 
           {/* Right Column */}
-          <motion.div
-            className="col-12 col-md-6 mb-4"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="col-12 col-md-6 mb-4">
             <div className="d-flex flex-column flex-md-row find-me">
               <div className="me-md-5 mb-3 mb-md-0">
-                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Follow Me</h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
-                  <li>LinkedIn</li>
-                  <li>Twitter</li>
-                  <li>Instagram</li>
-                  <li>GitHub</li>
-                </ul>
+                <h5
+                  className="fw-bold"
+                  style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}
+                >
+                  Follow Me
+                </h5>
+                <ul
+  className="list-unstyled"
+  style={{ color: 'gray', fontSize: '1.3rem' }}
+>
+  <li>
+    <a href="https://www.linkedin.com/in/sheel-patel-ba706b2b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+      LinkedIn
+    </a>
+  </li>
+  <li>
+    <a href="https://x.com/sheelpatel07" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+      Twitter
+    </a>
+  </li>
+  <li>
+    <a href="https://www.instagram.com/sheel0710?igsh=MW1xb3Bkc2NiYWlwcQ==" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+      Instagram
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/Sheelkpatel/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+      GitHub
+    </a>
+  </li>
+</ul>
               </div>
               <div>
-                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>Contact Me</h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
+                <h5
+                  className="fw-bold"
+                  style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}
+                >
+                  Contact Me
+                </h5>
+                <ul
+                  className="list-unstyled"
+                  style={{ color: 'gray', fontSize: '1.3rem' }}
+                >
                   <li>sheelpatel0710@gmail.com</li>
                   <li>+91 9537904484</li>
                 </ul>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Buttons */}
         <div className="row mt-4">
-          <motion.div
-            className="col-12 col-md-6 mb-3"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
+          <div className="col-12 col-md-6 mb-3">
             <button
               onClick={handleEmailClick}
               className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white"
             >
               Contact via Email
             </button>
-          </motion.div>
-          <motion.div
-            className="col-12 col-md-6 mb-3"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
+          </div>
+          <div className="col-12 col-md-6 mb-3">
             {resumeUrl && (
               <a
                 href={resumeUrl}
@@ -136,10 +135,10 @@ const Resume = () => {
                 Get My CV
               </a>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

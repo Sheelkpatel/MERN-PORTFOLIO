@@ -15,19 +15,19 @@ function App() {
     <div className="app-container">
       <Navbar />
       <div id="home">
-        <Home />
+       <Home/>
       </div>
       <div id="about">
-        <About />
+       <About />
       </div>
       <div id="skills">
-        <Skills />
+       <Skills />
       </div>
       <div id="projects">
         <Projects />
       </div>
       <div id="resume">
-        <Resume />
+       <Resume />
       </div>
       <Footer />
     </div>

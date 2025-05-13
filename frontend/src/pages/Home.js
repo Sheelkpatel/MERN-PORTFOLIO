@@ -6,7 +6,7 @@ import MyImage from '../Assets/image.png';
 import '../css/main.css';
 
 const Home = () => (
-  <section className="hero-section" id="home">
+  <section className="hero-section" id="home" style={{width:"100%"}}>
     <Container className="home-content">
       <Row className="align-items-center">
         
@@ -44,20 +44,21 @@ const Home = () => (
 
     {/* WhatsApp Floating Button with zoom-in */}
     <motion.a
-      href="https://wa.me/9537904484?text=Hello!%20I'm%20interested%20in%20your%20portfolio..."
-      className="whatsapp-float"
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.5, delay: 1 }}
-    >
-      <img
-        src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
-        alt="WhatsApp"
-        className="whatsapp-icon"
-      />
-    </motion.a>
+  href="https://wa.me/9537904484?text=Hello!%20I'm%20interested%20in%20your%20portfolio%20and%20would%20like%20to%20learn%20more%20about%20your%20services.%20Can%20you%20provide%20more%20details%20on%20your%20projects%20or%20discuss%20potential%20collaboration%20opportunities?%20Looking%20forward%20to%20connecting%20with%20you!"
+  className="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  initial={{ scale: 0 }}
+  animate={{ scale: 1 }}
+  transition={{ duration: 0.5, delay: 1 }}
+>
+  <img
+    src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
+    alt="WhatsApp"
+    className="whatsapp-icon"
+  />
+</motion.a>
+
   </section>
 );
 
