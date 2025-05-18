@@ -22,6 +22,9 @@ import Insomnia from '../Assets/insomnia.svg';
 import MacOS from '../Assets/macos.svg';
 import GoogleDocs from '../Assets/googledocs.svg';
 import PowerPoint from '../Assets/powerpoint.svg';
+import Sequelize from '../Assets/Sequelize-Dark.svg';
+import Github from '../Assets/Github-Dark.svg';
+import PhP from '../Assets/PHP-Dark.svg';
 
 const Skills = () => {
   const skill = [
@@ -44,6 +47,9 @@ const Skills = () => {
     { name: 'macOS', img: MacOS },
     { name: 'Google Docs', img: GoogleDocs },
     { name: 'PowerPoint', img: PowerPoint },
+    { name: 'Sequelize', img: Sequelize },
+    { name: 'Github', img: Github },
+    { name: 'PHP', img: PhP },
   ];
 
   return (

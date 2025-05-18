@@ -115,12 +115,12 @@ const Resume = () => {
           <div className="col-12 col-md-6 mb-3">
           {resumeAvailable && (
   <a
-    href={`http://localhost:8080/api/resume/download`}
+    href={`${process.env.REACT_APP_API_BASE_URL}/api/resume/download`}
     target="_blank"            // Open in new tab
     rel="noopener noreferrer"
     className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
   >
-    VIEW My CV
+    GET MY CV
   </a>
 )}
 
