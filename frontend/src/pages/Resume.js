@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/resume.css';
 
 const Resume = () => {
-  const [resumeUrl, setResumeUrl] = useState('');
+  const [resumeAvailable, setResumeAvailable] = useState(false);
 
   useEffect(() => {
     const fetchResume = async () => {
@@ -11,7 +11,9 @@ const Resume = () => {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/api/resume/latest`
         );
-        setResumeUrl(data.url);
+        if (data.url) {
+          setResumeAvailable(true);
+        }
       } catch (error) {
         console.error(error);
         alert('Failed to fetch resume');
@@ -41,7 +43,6 @@ const Resume = () => {
         </h2>
 
         <div className="row align-items-start">
-          {/* Left Column */}
           <div className="col-12 col-md-6 mb-4 xyz">
             <p
               style={{
@@ -59,53 +60,40 @@ const Resume = () => {
             </p>
           </div>
 
-          {/* Right Column */}
           <div className="col-12 col-md-6 mb-4">
             <div className="d-flex flex-column flex-md-row find-me">
               <div className="me-md-5 mb-3 mb-md-0">
-                <h5
-                  className="fw-bold"
-                  style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}
-                >
+                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
                   Follow Me
                 </h5>
-                <ul
-  className="list-unstyled"
-  style={{ color: 'gray', fontSize: '1.3rem' }}
->
-  <li>
-    <a href="https://www.linkedin.com/in/sheel-patel-ba706b2b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-      LinkedIn
-    </a>
-  </li>
-  <li>
-    <a href="https://x.com/sheelpatel07" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-      Twitter
-    </a>
-  </li>
-  <li>
-    <a href="https://www.instagram.com/sheel0710?igsh=MW1xb3Bkc2NiYWlwcQ==" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-      Instagram
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/Sheelkpatel/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-      GitHub
-    </a>
-  </li>
-</ul>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
+                  <li>
+                    <a href="https://www.linkedin.com/in/sheel-patel-ba706b2b2" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://x.com/sheelpatel07" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/sheel0710" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Sheelkpatel/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
+                      GitHub
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div>
-                <h5
-                  className="fw-bold"
-                  style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}
-                >
+                <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
                   Contact Me
                 </h5>
-                <ul
-                  className="list-unstyled"
-                  style={{ color: 'gray', fontSize: '1.3rem' }}
-                >
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
                   <li>sheelpatel0710@gmail.com</li>
                   <li>+91 9537904484</li>
                 </ul>
@@ -125,16 +113,17 @@ const Resume = () => {
             </button>
           </div>
           <div className="col-12 col-md-6 mb-3">
-            {resumeUrl && (
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
-              >
-                Get My CV
-              </a>
-            )}
+          {resumeAvailable && (
+  <a
+    href={`http://localhost:8080/api/resume/download`}
+    target="_blank"            // Open in new tab
+    rel="noopener noreferrer"
+    className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
+  >
+    VIEW My CV
+  </a>
+)}
+
           </div>
         </div>
       </div>

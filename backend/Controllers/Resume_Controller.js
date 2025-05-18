@@ -1,6 +1,6 @@
 const cloudinary = require('../config/cloudinary');
 const { Resume } = require('../models/index');
-
+const axios = require('axios');
 // === Upload Resume PDF ===
 const uploadResume = async (req, res) => {
   try {
@@ -55,4 +55,25 @@ const getLatestResume = async (req, res) => {
   }
 };
 
-module.exports = { uploadResume, getLatestResume };
+const downloadResume = async (req, res) => {
+  try {
+    const resume = await Resume.findOne().sort({ updatedAt: -1 });
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found.' });
+    }
+
+    const response = await axios.get(resume.url, {
+      responseType: 'stream',
+    });
+
+    // Change here: Use 'inline' instead of 'attachment' to display PDF in browser
+    res.setHeader('Content-Disposition', 'inline; filename=Sheel-Patel-Resume.pdf');
+    res.setHeader('Content-Type', 'application/pdf');
+
+    response.data.pipe(res);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to download resume.', error: error.message });
+  }
+};
+
+module.exports = { uploadResume, getLatestResume , downloadResume};
