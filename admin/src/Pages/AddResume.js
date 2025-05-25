@@ -59,7 +59,7 @@ const UploadResume = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:8080/api/resume/upload', formData, {
+      const response = await axios.post('https://mern-portfolio-1-yadr.onrender.com/api/resume/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
