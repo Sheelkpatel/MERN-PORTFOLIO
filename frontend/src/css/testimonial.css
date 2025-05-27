@@ -1,0 +1,60 @@
+.testimonial-section {
+  background: #121212;
+  color: #f1f5f9;
+}
+
+.testimonial-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  text-align: center;
+}
+
+.text-accent {
+  color: #38bdf8; /* Tailwind cyan-400 */
+}
+
+.star {
+  color: #fbbf24; /* Tailwind yellow-400 */
+  margin: 0 2px;
+  font-size: 1.1rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .testimonial-text {
+    font-size:  1rem;
+  }
+
+  .star {
+    font-size: 1rem;
+  }
+}
+
+/* All slick dots white */
+.slick-dots li button:before {
+  color: white !important;
+  opacity: 1 !important;  /* Makes all dots fully visible */
+  font-size: 6px;         /* Optional: adjust dot size */
+}
+
+.slick-dots li.slick-active button:before {
+  color: white !important;
+  opacity: 1 !important;
+  font-size: 8px;         /* Optional: slightly larger for active */
+}

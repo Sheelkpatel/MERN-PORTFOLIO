@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import '../css/resume.css';
-
+import { MdOutlineMail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
+import { IoLocationSharp } from "react-icons/io5";
 const Resume = () => {
   const [resumeAvailable, setResumeAvailable] = useState(false);
 
@@ -38,12 +41,22 @@ const Resume = () => {
   return (
     <section id="cv" className="resume">
       <div className="container">
-        <h2 className="display-5 fw-bold mb-5 text-center text-md-start">
+        <motion.h2
+          className="display-5 fw-bold mb-5 text-center text-md-start"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Get In Touch.
-        </h2>
+        </motion.h2>
 
         <div className="row align-items-start">
-          <div className="col-12 col-md-6 mb-4 xyz">
+          <motion.div
+            className="col-12 col-md-6 mb-4 xyz"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <p
               style={{
                 color: 'gray',
@@ -58,73 +71,73 @@ const Resume = () => {
               question or just want to say hi — feel free to reach out. Let's
               build something great together.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="col-12 col-md-6 mb-4">
+          <motion.div
+            className="col-12 col-md-6 mb-4"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <div className="d-flex flex-column flex-md-row find-me">
               <div className="me-md-5 mb-3 mb-md-0">
                 <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
-                  Follow Me
+                  Services
                 </h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
-                  <li>
-                    <a href="https://www.linkedin.com/in/sheel-patel-ba706b2b2" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-                      LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://x.com/sheelpatel07" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/sheel0710" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/Sheelkpatel/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray', textDecoration: 'none' }}>
-                      GitHub
-                    </a>
-                  </li>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem' }}>
+                 <li>Frontend Development</li>
+                 <li>backend Development</li>
+                 <li>API Integration</li>
+                 <li>Custom Website</li>
                 </ul>
               </div>
               <div>
                 <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
                   Contact Me
                 </h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.3rem' }}>
-                  <li>sheelpatel0710@gmail.com</li>
-                  <li>+91 9537904484</li>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem' }}>
+                  <li className='fex'> <MdOutlineMail/> sheelpatel0710@gmail.com</li>
+                  <li> <FaPhone/> +91 9537904484</li>
+                  <li> <IoLocationSharp/> Vadodara,Gujarat</li>
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Buttons */}
         <div className="row mt-4">
-          <div className="col-12 col-md-6 mb-3">
+          <motion.div
+            className="col-12 col-md-6 mb-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <button
               onClick={handleEmailClick}
               className="btn btn-info w-100 py-3 text-uppercase fw-semibold text-white"
             >
               Contact via Email
             </button>
-          </div>
-          <div className="col-12 col-md-6 mb-3">
-          {resumeAvailable && (
-  <a
-    href={`${process.env.REACT_APP_API_BASE_URL}/api/resume/download`}
-    target="_blank"            // Open in new tab
-    rel="noopener noreferrer"
-    className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
-  >
-    GET MY CV
-  </a>
-)}
+          </motion.div>
 
-          </div>
+          <motion.div
+            className="col-12 col-md-6 mb-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            {resumeAvailable && (
+              <a
+                href={`${process.env.REACT_APP_API_BASE_URL}/api/resume/download`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-light w-100 py-3 text-uppercase fw-semibold custom-resume"
+              >
+                GET MY CV
+              </a>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

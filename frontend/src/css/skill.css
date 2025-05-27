@@ -71,9 +71,4 @@
     margin-bottom: 1.5rem;
   }
   
-  .skill-card img:hover {
-    border: 1px solid rgb(25, 148, 224);
-    border-radius: 5px;
-    box-shadow: 0 4px 20px rgba(25, 148, 224, 0.4);
-    transition: all 0.3s ease-in-out;
-  }
+  

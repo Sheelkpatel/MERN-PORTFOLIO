@@ -7,9 +7,13 @@ const Navbar = () => {
   const sectionMap = {
     Home: 'home',
     About: 'about',
+    Services: 'services',
     Skills: 'skills',
     Projects: 'project',
+    Testimonial: 'testimonial',
     Resume: 'cv',
+    
+    
   };
 
   return (

@@ -1,55 +1,61 @@
 import React from 'react';
 import Avatar from "../Assets/avatar1.svg";
 import Tilt from "react-parallax-tilt";
-import '../css/About.css';
 import { motion } from 'framer-motion';
+import '../css/About.css';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
   
-  return (
-    <section id="about" className="about-section">
-      <div className="container-fluid">
-        <div className="row align-items-center gy-5">
 
+  return (
+    <section id="about" className="about-section py-5">
+      <div className="container">
+        <div className="row align-items-center gy-5">
+        <h2 className="section-title mb-4 text-center">LET ME INTRODUCE MYSELF</h2>
           {/* Text Section */}
-          <motion.div className="col-12 col-md-7"
-           initial={{ x: 100, opacity: 0 }}
-           animate={{ x: 0, opacity: 1 }}
-           transition={{ duration: 1, delay: 0.3 }}>
-            <h1 className="section-title text-center">LET ME INTRODUCE MYSELF</h1>
+          <motion.div 
+            className="col-12 col-md-7"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            
+          
+            <h4 className="text-accent fw-bold mb-2">Full Stack Developer</h4>
             <p className="about-text">
-              Hi Everyone, I am <strong className="text-accent">Sheel Patel</strong> from Vadodara, Gujarat, India.
-              I have completed my Bachelors in Computer Engineering from Gujarat Technological University.
-              I am a passionate and dedicated aspiring software developer with a strong foundation in mathematics, programming, and problem-solving.
-              I am currently looking for opportunities to kickstart my career in software development and contribute to meaningful projects.
+              Hello! I'm <strong className="text-accent">Sheel Patel</strong> from Vadodara, Gujarat, India. I hold a Bachelor's degree in Computer Engineering from Gujarat Technological University.
             </p>
+
             <p className="about-text">
-              I fell in love with programming and have been constantly learning and building since.
-              <br /><br />
-              Proficient in <span className="text-accent fw-semibold">MERN, JavaScript</span>, and passionate about
-              developing <span className="text-accent fw-semibold">Web Technologies</span>.
-              <br /><br />
-              I build web apps with <span className="text-accent fw-semibold">Node.js</span> and modern frameworks like <span className="text-accent fw-semibold">React.js</span>.
+              I'm a passionate and driven software developer with a solid foundation in mathematics, data structures, and real-world problem-solving. I'm eager to contribute to impactful web development projects.
             </p>
+
+            <p className="about-text">
+              I specialize in <span className="text-accent fw-semibold">MERN stack</span> and have a strong grip on <span className="text-accent fw-semibold">JavaScript</span>. I enjoy building responsive and dynamic web applications using modern technologies like <span className="text-accent fw-semibold">React.js</span> and <span className="text-accent fw-semibold">Node.js</span>.
+            </p>
+
+            <a href='#cv'className="btn btn-accent mt-3" >
+              
+              Contact Me 
+            </a>
           </motion.div>
 
           {/* Image Section */}
-          <div
-            className="col-12 col-md-5"
-      
+          <motion.div 
+            className="col-12 col-md-5 text-center"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
           >
-            <Tilt>
-              <motion.img 
+            <Tilt glareEnable={true} glareMaxOpacity={0.4} scale={1.05}>
+              <img 
                 src={Avatar} 
-                alt="Developer at work" 
-                className="img-fluid responsive-avatar" 
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-        
+                alt="Developer illustration" 
+                className="img-fluid responsive-avatar rounded"
               />
             </Tilt>
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -63,9 +63,14 @@ const Skills = () => {
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.03,
+                boxShadow: "0 12px 25px rgba(0, 188, 212, 0.2)",
+                transition: { type: 'spring', stiffness: 200 },
+              }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.0 }}
+             
             >
               <img src={skill.img} alt={skill.name} />
               <p>{skill.name}</p>

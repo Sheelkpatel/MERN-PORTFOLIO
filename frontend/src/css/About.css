@@ -43,6 +43,43 @@
   transition: all 0.3s ease-in-out;
 }
 
+
+
+
+
+
+
+.text-accent {
+  color: #00bcd4 /* Adjust based on your theme */
+}
+
+.btn-accent  {
+  background-color:#00bcd4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.btn-accent a {
+  background-color:#00bcd4;
+  color: white;
+  
+  font-weight: 600;
+  
+  
+  text-decoration: none;
+}
+.btn-accent:hover,.btn-accent a:hover {
+  background-color: #121212;
+  color:#00bcd4;
+  border: 1px solid #00bcd4;
+
+}
+
+
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
