@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
+import { FaPhone  } from "react-icons/fa6";
 import Type from "./TypeWriter";
 import MyImage from '../Assets/image.png';
 import '../css/main.css';
@@ -38,6 +39,25 @@ const Home = () => (
             <a href="#project" className="hero-btn mt-3">
               VIEW MY PROJECTS
             </a>
+            <OverlayTrigger
+  placement="bottom"
+  overlay={
+    <Tooltip id="hireme-tooltip" className="custom-tooltip">
+     Click to contact me directly!
+    </Tooltip>
+  }
+>
+  <a
+    href="tel:+919537904484"
+    className="hero-btn mt-3 ms-2"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+  <FaPhone /> &nbsp; HIRE ME
+  </a>
+</OverlayTrigger>
+           
+         
           </motion.div>
         </Col>
       </Row>

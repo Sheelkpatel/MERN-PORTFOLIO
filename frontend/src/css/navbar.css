@@ -2,6 +2,7 @@
 .custom-navbar {
   background:#121212;
   transition: background 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .custom-navbar .navbar-brand {
@@ -41,10 +42,24 @@
   color:  #00bcd4;
 }
 
-.navbar-toggler {
-  border: none;
-  outline: none;
+/* Custom size and background for the toggler button */
+.custom-toggler {
+ /* Green border */
+  margin-left: 10px;
+  padding: 5px 10px;        /* Increase size */
+  border-radius: 6px;
 }
+
+/* Custom icon color and size */
+.custom-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 188, 212, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  width: 40px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
 
 @media (max-width: 768px) {
   .navbar-nav {

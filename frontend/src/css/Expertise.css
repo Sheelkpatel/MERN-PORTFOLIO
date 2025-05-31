@@ -1,0 +1,79 @@
+.category-btn {
+  min-width: 120px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 4px 6px rgb(13 110 253 / 0.3);
+}
+
+.category-btn:hover:not(.btn-primary) {
+  background-color: #00bcd4;
+  color: white;
+  box-shadow: 0 6px 12px rgb(13 110 253 / 0.5);
+  transform: translateY(-3px);
+}
+.selected-category {
+  background-color: #00bcd4; /* Cyan or your preferred color */
+  color: white;
+  border-color: #00bcd4;
+}
+
+/* When not selected */
+.unselected-category {
+  background-color: transparent;
+  color: #00bcd4;
+  border-color: #00bcd4;
+}
+
+.chart-container {
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color:#fff;
+  
+}
+
+.chart-container:hover {
+ transform: translateY(-8px);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-wrapper {
+    height: 250px;
+  }
+}
+
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInUp 0.8s ease forwards;
+}

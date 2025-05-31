@@ -23,7 +23,7 @@
 }
 
 .text-accent {
-  color: #00adb5;
+  color: #00bcd4;
 }
 
 .avatar-image {
@@ -49,9 +49,8 @@
 
 
 
-.text-accent {
-  color: #00bcd4 /* Adjust based on your theme */
-}
+.text-accent1 {
+  color:#00bcd4;}
 
 .btn-accent  {
   background-color:#00bcd4;

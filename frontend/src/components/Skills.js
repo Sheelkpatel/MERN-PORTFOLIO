@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../css/skill.css'; // Keep using your existing styles
-
+import Expertise from './Expertise.js'
 // Import assets...
 import HTML from '../Assets/HTML.svg';
 import CSS from '../Assets/CSS.svg';
@@ -25,7 +25,7 @@ import PowerPoint from '../Assets/powerpoint.svg';
 import Sequelize from '../Assets/Sequelize-Dark.svg';
 import Github from '../Assets/Github-Dark.svg';
 import PhP from '../Assets/PHP-Dark.svg';
-
+import Arduino from '../Assets/Arduino.svg'
 const Skills = () => {
   const skill = [
     { name: 'HTML', img: HTML },
@@ -50,10 +50,12 @@ const Skills = () => {
     { name: 'Sequelize', img: Sequelize },
     { name: 'Github', img: Github },
     { name: 'PHP', img: PhP },
+     { name: 'Arduino IDE', img:Arduino },
   ];
 
   return (
     <section id="skills" style={{ backgroundColor: '#121212', color: 'white' }}>
+       <Expertise />
       <div className="skills-section container py-5">
         <h2 className="text-center mb-4">Professional Skill Set</h2>
         <div className="skills-grid mt-5">
@@ -78,6 +80,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
+      
     </section>
   );
 };

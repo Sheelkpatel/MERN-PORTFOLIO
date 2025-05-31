@@ -3,7 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import '../css/resume.css';
 import { MdOutlineMail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone ,FaGlobe } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 const Resume = () => {
   const [resumeAvailable, setResumeAvailable] = useState(false);
@@ -84,7 +84,7 @@ const Resume = () => {
                 <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
                   Services
                 </h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem' }}>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem',lineHeight:"35px" }}>
                  <li>Frontend Development</li>
                  <li>backend Development</li>
                  <li>API Integration</li>
@@ -95,10 +95,11 @@ const Resume = () => {
                 <h5 className="fw-bold" style={{ fontSize: '1.5rem', fontFamily: 'Castoro, serif' }}>
                   Contact Me
                 </h5>
-                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem' }}>
-                  <li className='fex'> <MdOutlineMail/> sheelpatel0710@gmail.com</li>
-                  <li> <FaPhone/> +91 9537904484</li>
-                  <li> <IoLocationSharp/> Vadodara,Gujarat</li>
+                <ul className="list-unstyled" style={{ color: 'gray', fontSize: '1.2rem',lineHeight:"35px" }}>
+                  <li><MdOutlineMail style={{fontSize:"1.5rem",color: '#00bcd4'}}/> sheelpatel0710@gmail.com</li>
+                  <li><FaPhone style={{fontSize:"1.3rem",color: '#00bcd4'}}/> +91 9537904484</li>
+                  <li><IoLocationSharp style={{fontSize:"1.7rem",color: '#00bcd4'}}/> Vadodara,Gujarat</li>
+                  <li><FaGlobe style={{fontSize:"1.5rem",color: '#00bcd4'}}/> <a href="sheelpatel-portfolio.vercel.app" className='text-decoration-none' style={{ color: 'gray'}}>sheelpatel-portfolio.vercel.app</a></li>
                 </ul>
               </div>
             </div>

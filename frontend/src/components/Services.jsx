@@ -62,12 +62,14 @@ const Services = () => {
     <section className="services-section py-5" id="services">
       <div className="container">
         <motion.h2
-          className="text-center fw-bold mb-5"
+          className="text-center text-light mb-5 fw-bold display-6"
+       
+        
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          What I Offer
+          What I <span style={{ color: "#00bcd4" }}>Offer</span>
         </motion.h2>
         <div className="row">
           {services.map((service, index) => (
