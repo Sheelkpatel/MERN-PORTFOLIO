@@ -7,4 +7,5 @@ const resumeController = require('../Controllers/Resume_Controller');
 router.post('/upload', upload.single('resume'), resumeController.uploadResume);
 router.get('/latest', resumeController.getLatestResume);
 router.get('/download',resumeController.downloadResume); 
+
 module.exports = router;

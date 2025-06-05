@@ -103,7 +103,22 @@ const EditProject = () => {
       setLoading(false);
     }
   };
+  const handleDelete = async () => {
+  const confirmDelete = window.confirm('Are you sure you want to delete this project?');
+  if (!confirmDelete) return;
 
+  try {
+    setLoading(true);
+    await axios.delete(`http://localhost:8080/api/projects/delete/${id}`);
+    alert('Project deleted successfully');
+    navigate('/list-projects');
+  } catch (error) {
+    console.error('Delete Error:', error);
+    alert('Failed to delete project');
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="container mt-5">
       <h2 className="mb-4 text-center">Edit Project</h2>
@@ -229,6 +244,14 @@ const EditProject = () => {
         >
           {loading ? 'Updating...' : 'Update Project'}
         </button>
+        <button
+  type="button"
+  className="btn btn-danger w-100 mt-2"
+  onClick={handleDelete}
+  disabled={loading}
+>
+  {loading ? 'Deleting...' : 'Delete Project'}
+</button>
       </form>
     </div>
   );

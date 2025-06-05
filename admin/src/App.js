@@ -7,6 +7,7 @@ import AddProject from './Pages/Add';
 import ListProjects from './Pages/ListProject';
 import Edit from './Pages/Edit';
 import Resume from './Pages/AddResume';
+import Testimonails from './Pages/Testimonailo';
 const App = () => {
   return (
     <Router>
@@ -59,6 +60,17 @@ const App = () => {
               <>
                 <Navbar />
                 <Edit />
+              </>
+            
+          }
+        />
+        <Route
+          path="/admin/testimonail"
+          element={
+            
+              <>
+                <Navbar />
+                <Testimonails />
               </>
             
           }

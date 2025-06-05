@@ -101,6 +101,15 @@ const listProjects = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch projects.', error: error.message });
   }
 };
+  const getPublishedProjects = async (req, res) => {
+  try {
+    const projects = await Project.find({ published: true });
+    res.status(200).json(projects);
+  } catch (error) {
+    console.error("Error fetching published projects:", error); // Log complete error
+    res.status(500).json({ message: "Server error", error: error.message || error });
+  }
+};
 
 // === Get Single Project by ID ===
 const getProjectById = async (req, res) => {
@@ -117,10 +126,45 @@ const getProjectById = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch project.', error: error.message });
   }
 };
+const deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const project = await Project.findById(id);
+    if (!project) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    // OPTIONAL: Delete images from Cloudinary
+    // Assuming image URLs follow the pattern: https://res.cloudinary.com/<cloud_name>/.../projects/<image_name>
+    const deletePromises = (project.images || []).map((imageUrl) => {
+      const publicId = imageUrl
+        .split('/')
+        .slice(-2)
+        .join('/')
+        .split('.')[0]; // Get folder/imageName without extension
+
+      return cloudinary.uploader.destroy(publicId, { resource_type: 'image' });
+    });
+
+    await Promise.all(deletePromises);
+
+    // Delete the project from DB
+    await Project.findByIdAndDelete(id);
+
+    res.json({ message: 'Project deleted successfully.' });
+  } catch (error) {
+    console.error('Delete Project Error:', error);
+    res.status(500).json({ message: 'Failed to delete project.', error: error.message });
+  }
+};
+
 
 module.exports = {
   addProject,
   editProject,
   listProjects,
-  getProjectById
+  getProjectById,
+  deleteProject,
+   getPublishedProjects
 };

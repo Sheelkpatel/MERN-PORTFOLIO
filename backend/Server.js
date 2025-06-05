@@ -6,6 +6,7 @@ const mongoose = require('mongoose'); // ⬅️ Use Mongoose instead of Sequeliz
 const projectRoutes = require('./Routes/ProjectRoutes');
 const adminRoutes = require('./Routes/AdminRoutes');
 const resumeRoutes = require('./Routes/ResumeRoutes');
+const testimonialRoutes = require('./Routes/testimonailsRoute');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,8 +26,8 @@ app.get('/api', (req, res) => {
 app.use('/api/projects', projectRoutes);
 app.use('/api', adminRoutes);
 app.use('/api/resume', resumeRoutes);
+app.use('/api/testimonials', testimonialRoutes);
 
-  
 // Connect to MongoDB
 mongoose.connect(MONGO_URI)
 .then(() => {
@@ -37,3 +38,4 @@ mongoose.connect(MONGO_URI)
 .catch((err) => {
   console.error('MongoDB connection error:', err.message);
 });
+
