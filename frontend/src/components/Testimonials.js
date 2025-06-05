@@ -8,7 +8,7 @@ const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/testimonials')  // backend URL
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/testimonials`)  // backend URL
       .then(res => res.json())
       .then(data => setTestimonials(data))
       .catch(console.error);

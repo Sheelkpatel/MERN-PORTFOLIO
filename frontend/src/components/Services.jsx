@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaServer, FaCogs, FaGlobe, FaPalette,FaCloudUploadAlt, FaTachometerAlt,FaDatabase } from 'react-icons/fa';
+import { FaCode, FaServer, FaCogs, FaGlobe, FaPalette,FaCloudUploadAlt, FaTachometerAlt,FaDatabase,FaTools } from 'react-icons/fa';
 import '../css/service.css';
 
 
@@ -10,6 +10,13 @@ const services = [
     icon: <FaCode />,
     description: 'Modern and responsive UI using React, HTML, CSS, and JavaScript.',
   },
+  {
+  title: 'Content Management System',
+  icon: <FaTools />,
+  description: 'CMS built with MERN stack to manage projects, resumes, and testimonials via a secure admin panel.'
+
+}
+,
   {
     title: 'Backend Development',
     icon: <FaServer />,

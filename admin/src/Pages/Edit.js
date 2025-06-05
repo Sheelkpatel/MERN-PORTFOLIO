@@ -109,7 +109,7 @@ const EditProject = () => {
 
   try {
     setLoading(true);
-    await axios.delete(`http://localhost:8080/api/projects/delete/${id}`);
+    await axios.delete(`https://mern-portfolio-1-yadr.onrender.com/api/projects/delete/${id}`);
     alert('Project deleted successfully');
     navigate('/list-projects');
   } catch (error) {
